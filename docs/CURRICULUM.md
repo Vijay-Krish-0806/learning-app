@@ -145,6 +145,7 @@ Status: **0 / all pages reviewed** · Last updated 2026-11-15
 - [ ] [C] OAuth 2.0 and OIDC flows; API keys; RBAC vs ABAC
 - [ ] [C] Password hashing (argon2/bcrypt), encryption at rest/in transit, envelope encryption, secrets management
 - [ ] [C] OWASP Top 10 for backends; CSRF, XSS, SSRF, injection, template injection; CORS explained properly
+- [ ] [C] Software supply chain: lockfiles and exact pins, peer-dependency compatibility, install-script allowlists, minimum release age (OWASP A03:2025) _(added 2026-11-15 from a field note)_
 - [ ] [C] Multi-tenancy: silo/pool/bridge models, tenant isolation, row-level security, noisy neighbor, tenant-scoped caching and rate limits
 - [ ] [C] Audit logging, PII handling
 - [ ] [E] GDPR in depth
@@ -267,6 +268,15 @@ Extended:
 - [ ] [E] RAG basics: embeddings, vector search, chunking
 - [ ] [E] Caching, rate limits and cost control; evaluation and observability; reliability; safe tool-calling
 
+## T22. Open learnings (system design topics outside T00-T21)
+
+Home for system design and backend learnings from projects that fit no other track (added 2026-11-15).
+Items are added by the `ingest-learnings` skill with approval. Pages live in `content/open/`. Related
+items can be promoted to a track of their own later. DSA and non-system-design topics do not go here.
+
+_No items yet._
+
 ## Out of scope
 
-Data structures and algorithms (LeetCode-style practice) are tracked separately (§4.4).
+Data structures and algorithms (LeetCode-style practice) are tracked separately (§4.4), as is anything
+that is not system design or backend engineering. The `ingest-learnings` skill skips such notes.

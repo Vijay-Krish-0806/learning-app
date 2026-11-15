@@ -1,0 +1,44 @@
+---
+title: Software supply chain
+description: 'Stub: full page not written yet. Holds field notes until then.'
+track: security
+order: 1
+levelsCovered: [fundamentals]
+readingTimeMin: 1
+tags: [supply-chain, dependencies]
+priority: core
+status: draft
+lastVerified: 2026-11-15
+reviewAfter: 2027-05-15
+appliedIn: [learning-app]
+---
+
+This is a stub. The full 17-section page, written with the write-topic workflow, will replace it.
+Until then it holds field notes from real projects.
+
+## Where this shows up in real projects, and field notes
+
+### Applied in practice: the newest version is not always a compatible one (draft)
+
+_Personal experience from **learning-app**, 2026-11-15. A field note, not sourced fact._
+
+- **What happened:** While scaffolding a Next.js 16 app, the newest major versions of TypeScript (7.0.2)
+  and ESLint (10.15.0) did not fit the rest of the toolchain, so older majors were pinned. Separately,
+  pnpm refused a version published less than a day earlier.
+- **Lesson:** "Latest" and "compatible" are different questions. Peer-dependency ranges show what a
+  package actually accepts, and a docs page can be ahead of the plugins it depends on. When a safety
+  check blocks a release, pick an older version instead of bypassing the check (Opinion/trade-off).
+- **Checked:** `typescript-eslint` 8.72.2 declares the peer range `typescript >=4.8.4 <6.1.0`, which
+  excludes TypeScript 7 (npm registry via `npm view`, verified 2026-11-15).
+- **Checked:** `eslint-plugin-react` 7.37.5, `eslint-plugin-jsx-a11y` 6.10.2 and `eslint-plugin-import`
+  2.32.0 declare ESLint peer ranges that end at version 9 (npm registry via `npm view`, verified 2026-11-15).
+- **Checked:** the Next.js ESLint docs say `eslint-config-next` supports ESLint 9 and 10, which disagrees
+  with the plugin metadata above ([Next.js docs](https://nextjs.org/docs/app/api-reference/config/eslint),
+  verified 2026-11-15).
+- **Checked:** pnpm's `minimumReleaseAge` is set in minutes, defaults to 1440 (one day), and exists
+  because malicious releases are usually detected quickly
+  ([pnpm supply-chain security](https://pnpm.io/supply-chain-security), verified 2026-11-15).
+- **Checked:** pnpm does not run dependencies' build scripts unless they are listed in `allowBuilds`
+  ([same page](https://pnpm.io/supply-chain-security), verified 2026-11-15).
+- **Personal observation (pnpm 12.21.0, Windows):** when an exact version less than a day old was
+  requested, pnpm wrote a `minimumReleaseAgeExclude` entry into `pnpm-workspace.yaml` itself.

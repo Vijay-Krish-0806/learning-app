@@ -1,0 +1,5 @@
+{
+  "title": "Security",
+  "summary": "Security for backend engineers: auth, OWASP risks, supply chain, multi-tenancy.",
+  "pages": ["software-supply-chain"]
+}
