@@ -1,0 +1,8 @@
+.next/
+out/
+.source/
+node_modules/
+pnpm-lock.yaml
+next-env.d.ts
+# The plan is the owner's source document; leave its formatting alone.
+LEARNING_APP_PLAN.md
