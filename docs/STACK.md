@@ -43,15 +43,19 @@ Versions were checked on the npm registry on **2026-11-15**.
   7.37.5, `eslint-plugin-jsx-a11y` 6.10.2 and `eslint-plugin-import` 2.32.0 declare ESLint 9 at most.
   ESLint 9 satisfies everything. Revisit when those plugins declare ESLint 10.
 - **Fumadocs 16.19.0 / fumadocs-mdx 15.6.0, not 16.19.3 / 15.6.2.** pnpm 12 has a minimum-release-age
-  supply-chain check, and 16.19.3 (published 2026-11-14) was too new, so pnpm wanted to add a
-  `minimumReleaseAgeExclude` exception. The project does not bypass that check, so it uses the
-  2026-11-11 release pair instead. The exact age threshold was not confirmed:
-  `pnpm config get minimumReleaseAge` printed `undefined`.
+  supply-chain check, and 16.19.3 (published 2026-11-14) was too new. When that exact version was
+  requested, pnpm added a `minimumReleaseAgeExclude` exception to `pnpm-workspace.yaml` by itself. The
+  project does not bypass the check, so it uses the 2026-11-11 release pair instead. `minimumReleaseAge`
+  is set in minutes and defaults to `1440` (one day), because malicious releases are usually detected
+  quickly (source: https://pnpm.io/supply-chain-security, verified 2026-11-15). The project keeps the
+  default (`pnpm config get minimumReleaseAge` prints `undefined`, meaning nothing overrides it).
 
 ## Supply-chain settings (`pnpm-workspace.yaml`)
 
 - pnpm blocks dependency install scripts by default. Only `esbuild` is allowed (`allowBuilds`), because
-  `fumadocs-mdx` uses it and its install script sets up its native binary.
+  `fumadocs-mdx` uses it and its install script sets up its native binary. pnpm runs dependency build
+  scripts only for packages listed in `allowBuilds` (source: https://pnpm.io/supply-chain-security,
+  verified 2026-11-15).
 
 ## CI (`.github/workflows/ci.yml`)
 

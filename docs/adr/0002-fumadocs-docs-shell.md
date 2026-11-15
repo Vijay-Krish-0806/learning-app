@@ -1,6 +1,6 @@
 # ADR-0002: Fumadocs as the docs shell
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-11-15
 
 ## Context

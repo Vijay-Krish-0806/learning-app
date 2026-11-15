@@ -1,6 +1,6 @@
 # ADR-0004: User state in localStorage with a versioned schema
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-11-15
 
 ## Context

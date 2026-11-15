@@ -1,6 +1,6 @@
 # ADR-0005: Mermaid diagrams rendered client-side
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-11-15
 
 ## Context

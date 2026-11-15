@@ -1,6 +1,6 @@
 # ADR-0001: Next.js and MDX as a static site
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-11-15
 
 ## Context
